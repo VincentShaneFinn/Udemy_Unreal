@@ -1,43 +1,67 @@
 #include <iostream>
 #include <string>
-#include "main.h"
-
-using namespace std;
+#include "FBullCowGame.h"
 
 void PrintIntro();
-string GetGuessAndPrint();
+std::string GetGuess();
+void PlayGame();
+bool AskToPlayAgain();
+
+FBullCowGame BCGame; //notice the object is construced even tho we havent used the c# new Keyword
 
 //entry point for our application
 int main()
 {
-
-	PrintIntro();
-	for (int count = 1; count <= 5; count++) {
-		GetGuessAndPrint();
-		cout << endl;
-	}
-
+	do {
+		PrintIntro();
+		PlayGame();
+	} 
+	while (AskToPlayAgain());
 	return 0;
-}
-
-string GetGuessAndPrint()
-{
-	string Guess = "";
-
-	cout << "Enter your guess: ";
-	getline(cin, Guess);
-	cout << endl;
-
-	//print the guess back
-	cout << "Your guess was: " << Guess << endl;
-
-	return Guess;
 }
 
 void PrintIntro()
 {
 	constexpr int WORD_LENGTH = 5;
 
-	cout << "Welcome to bulls and Cows, a fun word game.\n";
-	cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n";
+	std::cout << "Welcome to bulls and Cows, a fun word game.\n";
+	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n";
+}
+
+void PlayGame()
+{
+	BCGame.Reset();
+	int MaxTries = BCGame.GetMaxTries();
+
+	//constexpr int NUMBER_OF_TURNS = 5;
+	for (int count = 1; count <= MaxTries; count++) {
+		std::string Guess = GetGuess();
+		std::cout << "Your guess was: " << Guess << std::endl;
+		std::cout << std::endl;
+	}
+
+	//TODO add a game summary
+}
+
+std::string GetGuess()
+{
+	int CurrentTry = BCGame.GetCurrentTry();
+
+	std::string Guess = "";
+
+	std::cout << "Try " << CurrentTry << ". Enter your guess: ";
+	std::getline(std::cin, Guess);
+	std::cout << std::endl;
+
+	return Guess;
+}
+
+bool AskToPlayAgain()
+{
+	std::cout << "Do you want to play again? (y/n) ";
+	std::string Response = "";
+	std::getline(std::cin, Response);
+	std::cout << std::endl;
+
+	return (Response[0] == 'y') || (Response[0] == 'Y');
 }
