@@ -609,3 +609,5 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2019.04.14-17.00.54:442][674]LogUObjectHash: Compacting FUObjectHashTables data took   0.58ms
 [2019.04.14-17.00.55:197][674]LogSavePackage: Moving '../../../../../GITHUB/Udemy_Unreal/4. Building Escape/BuildingEscape/Saved/NewMap4276CD1D4BDCE5DDB3F212A10F91F3B2.tmp' to '../../../../../GITHUB/Udemy_Unreal/4. Building Escape/BuildingEscape/Content/NewMap.umap'
 [2019.04.14-17.00.55:273][674]LogFileHelpers: Saving map 'NewMap' took 0.893
+[2019.04.14-17.03.35:410][230]LogSlate: FSceneViewport::OnFocusLost() reason 2
+[2019.04.14-17.03.37:349][421]LogUObjectHash: Compacting FUObjectHashTables data took   1.47ms
