@@ -611,3 +611,14 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2019.04.14-17.00.55:273][674]LogFileHelpers: Saving map 'NewMap' took 0.893
 [2019.04.14-17.03.35:410][230]LogSlate: FSceneViewport::OnFocusLost() reason 2
 [2019.04.14-17.03.37:349][421]LogUObjectHash: Compacting FUObjectHashTables data took   1.47ms
+[2019.04.14-17.05.17:823][557]Cmd: TRANSACTION UNDO
+[2019.04.14-17.05.17:823][557]LogEditorTransaction: Undo Move Actors
+[2019.04.14-17.05.18:335][605]LogEditorViewport: Clicking on Actor (LMB): StaticMeshActor (SM_Chair)
+[2019.04.14-17.05.18:504][619]LogEditorViewport: Clicking on Component (LMB): StaticMeshComponent (StaticMeshComponent0)
+[2019.04.14-17.05.20:419][825]LogSlate: FSceneViewport::OnFocusLost() reason 2
+[2019.04.14-17.05.21:392][937]LogUObjectHash: Compacting FUObjectHashTables data took   1.13ms
+[2019.04.14-17.05.21:406][937]LogSlate: FSceneViewport::OnFocusLost() reason 2
+[2019.04.14-17.05.21:411][937]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/NewMap" FILE="../../../../../GITHUB/Udemy_Unreal/4. Building Escape/BuildingEscape/Content/NewMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2019.04.14-17.05.21:435][937]LogUObjectHash: Compacting FUObjectHashTables data took   0.52ms
+[2019.04.14-17.05.21:597][937]LogSavePackage: Moving '../../../../../GITHUB/Udemy_Unreal/4. Building Escape/BuildingEscape/Saved/NewMap82979C514317EBD00F37588F453C79A5.tmp' to '../../../../../GITHUB/Udemy_Unreal/4. Building Escape/BuildingEscape/Content/NewMap.umap'
+[2019.04.14-17.05.21:622][937]LogFileHelpers: Saving map 'NewMap' took 0.212
