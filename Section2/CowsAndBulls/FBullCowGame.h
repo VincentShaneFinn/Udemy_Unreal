@@ -10,6 +10,13 @@ struct FBullCowCount
 	int32 Cows = 0;
 };
 
+enum class EGuessStatus {
+	OK, 
+	Not_Isogram, 
+	Wrong_Length,
+	Not_Lowercase,
+};
+
 //NEVER DO USING NAMESPACE IN HEADER FILE
 //using namespace std;
 class FBullCowGame {
@@ -22,8 +29,8 @@ public:
 	int32 GetHiddenWordLength() const;
 	bool IsGameWon() const;
 
-	bool CheckGuessValidity(FString); //TODO make a richer return value;
-	FBullCowCount SubmitGuess(FString);
+	EGuessStatus CheckGuessValidity(FString);
+	FBullCowCount SubmitValidGuess(FString);
 	void Reset(); //TODO make a richer return value.
 
 private:
@@ -31,4 +38,5 @@ private:
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
+	bool bGameIsWon;
 };

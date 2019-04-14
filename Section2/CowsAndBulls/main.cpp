@@ -12,7 +12,7 @@ using FText = std::string;
 using int32 = int;
 
 void PrintIntro();
-std::string GetGuess();
+std::string GetValidGuess();
 void PlayGame();
 bool AskToPlayAgain();
 
@@ -31,8 +31,6 @@ int main()
 
 void PrintIntro()
 {
-	
-
 	std::cout << "Welcome to bulls and Cows, a fun word game.\n";
 	std::cout << "Can you guess the " << BCGame.GetHiddenWordLength() << " letter isogram I'm thinking of?\n";
 }
@@ -42,11 +40,10 @@ void PlayGame()
 	BCGame.Reset();
 	int32 MaxTries = BCGame.GetMaxTries();
 
-	//constexpr int NUMBER_OF_TURNS = 5;
-	for (int32 count = 1; count <= MaxTries; count++) {
-		FText Guess = GetGuess();
+	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries) {
+		FText Guess = GetValidGuess();
 
-		FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
+		FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
 
 		std::cout << "Bulls =  " << BullCowCount.Bulls << std::endl;
 		std::cout << "Cows =  " << BullCowCount.Cows << std::endl;
@@ -57,16 +54,34 @@ void PlayGame()
 	//TODO add a game summary
 }
 
-FText GetGuess()
-{
-	int32 CurrentTry = BCGame.GetCurrentTry();
-
+// loop continually until a valid guess is provided
+FText GetValidGuess()
+{		
 	FText Guess = "";
+	EGuessStatus Status;
+	do {
+		int32 CurrentTry = BCGame.GetCurrentTry();
 
-	std::cout << "Try " << CurrentTry << ". Enter your guess: ";
-	std::getline(std::cin, Guess);
-	std::cout << std::endl;
+		std::cout << "Try " << CurrentTry << ". Enter your guess: ";
+		std::getline(std::cin, Guess);
+		std::cout << std::endl;
 
+		Status = BCGame.CheckGuessValidity(Guess);
+
+		switch (Status) {
+		case EGuessStatus::Wrong_Length:
+			std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n";
+			break;
+		case EGuessStatus::Not_Isogram:
+			std::cout << "Please enter a word without repeating letters.\n";
+			break;
+		case EGuessStatus::Not_Lowercase:
+			std::cout << "Please enter all lowercase letters.\n";
+			break;
+		default:
+			break;
+		}
+	} while (Status != EGuessStatus::OK);
 	return Guess;
 }
 

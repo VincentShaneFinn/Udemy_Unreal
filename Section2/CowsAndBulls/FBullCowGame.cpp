@@ -18,17 +18,29 @@ int32 FBullCowGame::GetCurrentTry() const
 int32 FBullCowGame::GetHiddenWordLength() const {
 	return MyHiddenWord.length();
 }
+
 bool FBullCowGame::IsGameWon() const
 {
-	return false;
+	return bGameIsWon;
 }
 
-bool FBullCowGame::CheckGuessValidity(FString)
+EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess)
 {
-	return false;
+	if (false) {
+		return EGuessStatus::Not_Isogram;
+;	}	
+	else if (false) {
+		return EGuessStatus::Not_Lowercase;
+	}
+	else if (Guess.length() != GetHiddenWordLength()) {
+		return EGuessStatus::Wrong_Length;
+	}
+	else {
+		return EGuessStatus::OK;
+	}
 }
 
-FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
+FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 {
 	MyCurrentTry++;
 
@@ -47,17 +59,23 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 			}
 		}
 	}
-
+	if (BullCowCount.Bulls == HiddenWordLength) {
+		bGameIsWon = true;
+	}
+	else {
+		bGameIsWon = false;
+	}
 	return BullCowCount;
 }
 
 void FBullCowGame::Reset()
 {
 	constexpr int32 MAX_TRIES = 8;
-	const FString HIDDEN_WORD = "strin";
+	const FString HIDDEN_WORD = "planet";
 
 	MyCurrentTry = 1;
 	MyMaxTries = MAX_TRIES;
 	MyHiddenWord = HIDDEN_WORD;
+	bGameIsWon = false;
 	return;
 }
