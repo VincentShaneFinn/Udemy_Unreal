@@ -1,9 +1,0 @@
-D:\GITHUB\Udemy_Unreal\4. Building Escape\BuildingEscape\Intermediate\Build\Win64\UE4Editor\Development\BuildingEscape\Definitions.BuildingEscape.h
-D:\program files d\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\program files d\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-D:\GITHUB\Udemy_Unreal\4. Building Escape\BuildingEscape\Source\BuildingEscape/BuildingEscapeGameModeBase.h
-D:\program files d\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-D:\program files d\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-D:\program files d\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
-D:\program files d\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-d:\github\udemy_unreal\4. building escape\buildingescape\intermediate\build\win64\ue4editor\inc\buildingescape\BuildingEscapeGameModeBase.generated.h
