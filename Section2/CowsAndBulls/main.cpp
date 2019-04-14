@@ -15,6 +15,7 @@ void PrintIntro();
 std::string GetValidGuess();
 void PlayGame();
 bool AskToPlayAgain();
+void PrintGameSummary();
 
 FBullCowGame BCGame; //notice the object is construced even tho we havent used the c# new Keyword
 
@@ -51,7 +52,7 @@ void PlayGame()
 		std::cout << std::endl;
 	}
 
-	//TODO add a game summary
+	PrintGameSummary();
 }
 
 // loop continually until a valid guess is provided
@@ -93,4 +94,13 @@ bool AskToPlayAgain()
 	std::cout << std::endl;
 
 	return (Response[0] == 'y') || (Response[0] == 'Y');
+}
+
+void PrintGameSummary() {
+	if (BCGame.IsGameWon()) {
+		std::cout << "WELL DONE - YOU WIN!!!\n";
+	}
+	else {
+		std::cout << "Better luck next time!\n:";
+	}
 }
